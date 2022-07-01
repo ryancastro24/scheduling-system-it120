@@ -14,4 +14,3 @@ class college(models.Model):
 
 
 
-

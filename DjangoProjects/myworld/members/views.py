@@ -1,3 +1,5 @@
+import string
+from xmlrpc.client import boolean
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import context, loader
@@ -25,12 +27,13 @@ def add(request):
   })
 
 
+
 def addrecord(request):
   c = request.POST['collegeName']
   s = request.POST['subject']
   u = request.POST['numberOfUnits']
   t = request.POST['timeAndDate']
-  collegeDetails = college(collegeName  = c, subject = s, numberOfUnits = u, timeAndDate = t)
+  collegeDetails = college(collegeName = c, subject = s, numberOfUnits = u, timeAndDate = t)
   collegeDetails.save()
   return HttpResponseRedirect(reverse('index'))
 
@@ -82,7 +85,3 @@ def updaterecord(request, id):
   myCollege.save()
   return HttpResponseRedirect(reverse('updatePage'))
 
-
-def helloworld(request):
-  myhello = 'helloasd asdasdasd world'
-  return HttpResponse(myhello)

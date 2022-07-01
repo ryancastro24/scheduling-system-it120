@@ -12,5 +12,4 @@ urlpatterns = [
     path('updatePage/update/<int:id>',views.update, name='update'),
     path('updatePage/update/updaterecord/<int:id>',views.updaterecord, name='updaterecord'),
     path('sample/',views.helloworld,name='hello')
-
 ]
