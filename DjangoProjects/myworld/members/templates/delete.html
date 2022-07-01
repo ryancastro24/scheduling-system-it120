@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+
+</head>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root{
+    --primary-color: rgb(69, 68, 68);
+    --secondary-color: rgb(92, 90, 90);
+    --white-color: #fff;    
+    --btn-color:rgb(0, 136, 255);
+}
+body{
+    width:100%;
+    height:100vh;
+    background-color:#F8F7F7;
+}
+main{
+    width:100%;
+    height:100%;
+    display:grid;
+    grid-template-columns:300px 1fr;
+   
+}
+.sidenav{
+    width:100%;
+    height:100%;
+    background-color:#232020;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:column;
+    padding:50px 30px;
+    
+}
+
+.sidenav .logo{
+    width:100px;
+    height:100px;
+    background-color:rgb(92, 90, 90);
+    border-radius:50%;
+}
+
+.upper-sidenav{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:50px;
+}
+.navigation{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:30px;
+}
+.navigation a{
+    width:100%;
+    height:100%;
+    text-decoration:none;
+    color:var(--white-color);
+    padding:15px 50px;
+    background-color:#312d2d;
+    text-align:center;
+    border-radius:2px;
+    transition:300ms;
+}
+
+.navigation a:hover{
+    background-color:#474444;
+}
+
+
+.navigation a:nth-child(1){
+    width:100%;
+    height:100%;
+    text-decoration:none;
+    color:var(--white-color);
+    padding:15px 50px;
+    background-color:var(--btn-color);
+    text-align:center;
+    
+}
+
+.sidenav #logout{
+    width:100%;
+    height:50px;
+    background-color:#312d2d;
+    color:var(--white-color);
+    font-size:0.9rem;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    border-radius:2px;
+    font-size:1rem;
+    transition:300ms;
+}
+.sidenav #logout:hover{
+    background-color: #ff0303;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.content{
+    width:100%;
+    height:100%;
+    display:grid;
+    grid-template-rows:80px 1fr;
+    padding:20px 20px;
+}
+
+.uppernavigation{
+    width:100%;
+    height:100%;
+    background-color:#D7D5D5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0px 30px;
+    box-shadow:0px 3px 7px rgba(0, 0, 0, 0.6);
+}
+
+.uppernavigation form input{
+    width:400px;
+    height:45px;
+    padding:0px 10px;
+    font-size:1rem;
+    border:none;
+    outline:none;
+}
+.uppernavigation form input:nth-child(2){
+    width:100px;
+    background-color:var(--btn-color);
+    color:var(--white-color);
+}
+.uppernavigation .profile{
+    width:50px;
+    height:50px;
+    background-color:var(--secondary-color);
+    border-radius:50%;
+}
+.table-container{
+    width:100%;
+    height:100%;
+    padding:30px 20px;
+    background-color:#D7D5D5;
+    margin-top:20px;
+}
+
+.table-container h1{
+    margin-bottom:20px;
+    color:rgb(44, 42, 42);
+    font-size:24px;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+    background-color:rgb(103, 102, 102);
+}
+table th{
+    color:rgb(249, 245, 245);
+    padding:10px;
+    background-color:#423f3f;
+    border:1px solid rgba(206, 201, 201, 0.6);
+    height:70px;
+    font-size:1rem;
+
+}
+table td{
+    text-align:center;
+    padding:10px 8px;
+    border:1px solid rgb(48, 47, 47,0.3);
+
+}
+table td:nth-child(1){
+    text-align:left;
+    font-weight:700;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    gap:10px;
+    
+}
+table td:nth-child(5) a{
+    color:red;
+    text-decoration:none;
+    transition:300ms;
+    font-weight:700;
+}
+table td:nth-child(5) a:hover{
+    font-size:1.3rem;
+}
+
+table tr:nth-child(odd){
+    background-color:rgb(238, 231, 231);
+    
+}
+
+table tr:nth-child(even){
+    
+    background-color:rgb(200, 199, 199);
+    
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+    
+    
+
+
+
+<main>
+
+<div  class="sidenav">
+
+    <div class="upper-sidenav">
+        <div class="logo">
+            
+        </div><!--end of logo-->
+        
+        <div class="navigation">
+            <a href="{% url 'add' %}">Add Record</a>
+            <a href="{% url 'updatePage' %}">Update Record</a>
+            <a href="{% url 'index' %}">View Schedules</a>
+        </div><!--end of navigation-->
+
+    </div><!--end of upper sidenav-->
+    <button id="logout">Logout</button>
+</div><!--end of sidenav-->
+   
+
+
+
+
+
+
+
+
+<div class="content">
+   
+<div class="uppernavigation">
+    <form action="">
+        <input type="seacrh" placeholder="search">
+        <input type="submit" value="search">
+    </form>
+
+    <div class="profile">
+        
+    </div><!--end of profile-->
+</div><!--end of uppernavigation-->
+   
+
+<div class="table-container">
+<h1>Delete A Record</h1>
+<table>
+
+<thead>
+<tr>
+<th>College Name</th>
+<th>Subject Description</th>
+<th>Number of Units</th>
+<th>Time and Date</th>
+<th>Delete Schedule</th>
+</tr>
+</thead>
+
+<tbody>
+{% for x in myCollege %}
+<tr>
+
+<td> {{ x.collegeName|upper }}</td>
+<td>{{ x.subject|upper }}</td>
+<td>{{ x.numberOfUnits }}</td>
+<td>{{ x.timeAndDate }}</td>
+<td><a href="delete/{{ x.id }}">delete</a></td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+</div><!--end of table container-->
+
+
+
+
+</div><!--end of content-->
+
+
+</main>
+</body>
+</html>

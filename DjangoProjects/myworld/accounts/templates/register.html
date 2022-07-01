@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        main{
+            width:100%;
+            height:100vh;
+            display:grid;
+            grid-template-columns: 1fr 600px;
+
+        }
+
+        .caption-container{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            
+        }
+        .caption{
+            width:600px;
+            display:flex;
+            flex-direction:column;
+            gap:30px;            
+        }
+
+        .caption h3{
+            font-weight:400;
+            font-size:18px;
+        }
+        .caption h2{
+            font-size:36px;
+            font-weight:200;
+        }
+        .caption h1{
+            font-size:90px;
+            font-weight:700;
+            line-height: 100%;
+        }
+        
+        .caption #login-btn{
+            width:120px;
+            height:50px;
+            border-radius:2px;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            background-color:rgb(0, 136, 255);
+            color:#fff;
+            box-shadow:0px 3px 7px rgba(0, 0, 0, 0.5); 
+            font-size:1rem;
+        
+        }
+
+        .form-field{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            gap:20px;
+            background-color:rgb(26, 26, 26);
+            position: relative;
+        }
+        .form-field .logo{
+            width:120px;
+            height:120px;
+            background-color:gray;
+            border-radius:50%;
+        }
+        .form-field h2{
+            color:#fff;
+        }
+    
+       .form-field form{
+            width:400px;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            flex-direction:column;
+            padding:20px 20px;
+            gap:25px;
+            position: relative;
+        }
+       .form-field form input{
+            width:100%;
+            height:45px;
+            padding:0px 10px;
+            border:none;
+            outline:none;
+            border-radius:2px;
+        }
+
+        .form-field form ul {
+            color:#fff;
+            list-style:none;
+            background-color:rgba(250, 4, 4, 0.4);
+            bottom:20px;
+            width:100%;
+            padding:10px;
+            
+        }
+        .form-field form ul li{
+            font-size:12px;
+        }
+
+       .form-field #submit-btn{
+            height:60px;
+            margin-top:20px;
+            background-color:rgb(0, 162, 255);
+            border:none;
+            outline:none;
+            color:#fff;
+            font-size:1rem;
+            border-radius:2px;
+            cursor: pointer;
+        }
+
+       .form-field form label{
+            color:#fff;
+        }
+        .form-field form .input-field{
+            display:flex;
+            flex-direction:column;
+            width:100%;
+            gap:8px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <main>
+        <div class="caption-container">
+            <div class="caption">
+                <h3>WELCOME TO</h3>
+                <h2>CARAGA STATE UNIVERSITY</h2>
+                <h1>SCHEDULING SYSTEM</h1>
+                <p>Already have and Account?</p>
+                <a href="{% url 'loginPage'%}"><button id="login-btn">login</button></a>
+             </div><!--end of caption-->
+        </div><!--end of caption container-->
+
+        <div class="form-field">
+            <div class="logo"></div><!--end of logo-->
+            <h2>Register</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                <div class="input-field">
+                    <label for="">{{form.username.label}}</label>  
+                    {{form.username}}
+                </div><!--end of input field--> 
+
+                <div class="input-field">
+                    <label for="">{{form.password1.label}}</label> 
+                    {{form.password1}}
+                </div><!--end of input field--> 
+
+                <div class="input-field">
+                <label for="">{{form.password2.label}}</label>
+                {{form.password2}}
+                </div><!--end of input field-->
+
+                <input id="submit-btn" type="submit" value="Register">
+                {{form.errors}}
+            </form>
+        </div><!--end of form field-->
+    </main>
+
+ 
+
+
+
+</body>
+</html>

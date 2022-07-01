@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body{
+        width:100%;
+        height:100%;
+      }
+
+      main{
+        width:100%;
+        height:100vh;
+        display:grid;
+        grid-template-columns: 1fr 600px
+
+      }
+      .caption{
+        width:100%;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        
+      }
+      .caption-container{
+        width:600px;
+        display:flex;
+        align-items:flex-start;
+        justify-content:flex-start;
+        flex-direction:column;
+        gap:20px;
+      }
+      .caption-container h2{
+        font-size:3rem;
+        font-weight:200;
+      }
+      .caption-container h1{
+        font-size:6rem;
+        line-height:100%;
+    
+      }
+      .caption-container p{
+        margin-top:20px;
+      }
+      .caption-container button{
+        width:130px;
+        height:50px;
+        background-color:rgb(0, 136, 255);
+        color:#fff;
+        border-radius:2px;
+        border:none;
+        outline:none;
+        cursor: pointer;
+        font-size:1rem;
+        font-weight:700;
+        margin-top:30px;
+        box-shadow:0px 3px 6px rgba(0, 0, 0, 0.7);
+      }
+
+      .form-field{
+        width:100%;
+        height:100%;
+        background-color:rgb(26, 26, 26);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        gap:50px;
+      }
+      .form-field .logo{
+        width:130px;
+        height:130px;
+        background-color:gray;
+        border-radius:50%;
+      }
+      .form-field form{
+        width:350px;
+        gap:30px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+      }
+      .form-field form p{
+        color:#fff ;
+      }
+      .form-field form #submit-btn{
+        width:100%;
+        background-color:rgb(0, 140, 255);
+        height:60px;
+        color: #fff;
+        font-size:1rem;
+        border-radius:2px;
+        border:none;
+        outline:none;
+        cursor:pointer;
+        
+      }
+      .form-field .input-field{
+        width:100%;
+        display:flex;
+        align-items:flex-start ;
+        justify-content:flex-start;
+        flex-direction:column;
+        gap:8px;
+      }
+      .form-field .input-field  label{
+        color:#fff;
+      }
+
+      
+      .form-field .input-field input{
+        width:100%;
+        height:45px;
+        border:none;
+        outline:none;
+        padding:0px 8px;
+        border-radius:2px;
+      }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <div class="caption">
+            <div class="caption-container">
+                <h2>Caraga State University</h2>
+                <h1>Sheduling System</h1>
+                <p>Organize your schedules!</p>
+                <a href="{% url 'registerPage'%}"><button>SIGN UP</button></a>
+            </div><!--end of caption container-->
+        </div><!--end of caption-->
+
+        <div class="form-field">
+
+            <div class="logo">
+
+            </div><!--end of logo-->
+            <form action="" method="POST">
+
+                {% csrf_token %}
+                <div class="input-field">
+                    <label for="">Username</label>
+                    <input type="text" name="username" placeholder="Enter username">
+                </div><!--end of input field-->
+
+                <div class="input-field">
+                    <label for="">Password</label>
+                    <input type="password" name="password" placeholder="Enter password">
+                </div><!--end of input field-->
+                
+                <input id="submit-btn" type="submit" value="login">
+                
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </form>
+        </div><!--end of form field-->
+    </main><!--end of main-->
+
+
+    
+</body>
+</html>
