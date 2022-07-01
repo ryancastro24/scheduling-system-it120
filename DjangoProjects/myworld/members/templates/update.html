@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,7 @@
 
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
      *{
     margin:0;
@@ -274,52 +274,59 @@ table tr:nth-child(even){
 
 
 
+
+
+
+
+
+<!--starting point of the body-->
+
+
+
+
+
 <body>
     
     
-    
+    <main>
 
-<main>
+        <div  class="sidenav">
 
-<div  class="sidenav">
+            <div class="upper-sidenav">
+                <div class="logo"></div><!--end of logo-->
+            
+            <div class="form-field">
 
-    <div class="upper-sidenav">
-    <div class="logo">
+                <form action="updaterecord/{{myCollege.id}}" method="post">
+                    {% csrf_token %}
+
+                    <div class="input-field">
+                        <label for="">College Name</label>
+                        <input type="text" name="collegeName" placeholder="Enter College Name" value="{{myCollege.collegeName}}" required>
+                    </div><!--end of input field-->
+
+                    <div class="input-field">
+                        <label for="">Subject Description</label>
+                        <input type="text" name="subject" placeholder="Enter Subject Description" value="{{myCollege.subject}}" required>
+                    </div><!--end of input field-->
+
+                    <div class="input-field">
+                        <label for="">Number of Units</label>
+                        <input type="number" name="numberOfUnits" placeholder="Enter Number of Units" value="{{myCollege.numberOfUnits" required>
+                    </div><!--end of input field-->
+
+                    <div class="input-field">
+                        <label for="">Time and Date</label>
+                        <input type="datetime-local" name="timeAndDate" placeholder="Enter Time and Date" value="{{myCollege.timeAndDate}}" required>
+                    </div><!--end of input field-->
+                    <input id="submit-btn" type="submit" value="Add Record">
+                </form>
+            </div><!--end of navigation-->
+
+        </div><!--end of upper sidenav-->
+            <button id="logout">Logout</button>
+        </div><!--end of sidenav-->
         
-    </div><!--end of logo-->
-    
-    <div class="form-field">
-
-       <form action="updaterecord/{{myCollege.id}}" method="post">
-        {% csrf_token %}
-
-        <div class="input-field">
-            <label for="">College Name</label>
-            <input type="text" name="collegeName" placeholder="Enter College Name" value="{{myCollege.collegeName}}" required>
-        </div><!--end of input field-->
-
-        <div class="input-field">
-            <label for="">Subject Description</label>
-            <input type="text" name="subject" placeholder="Enter Subject Description" value="{{myCollege.subject}}" required>
-        </div><!--end of input field-->
-
-        <div class="input-field">
-            <label for="">Number of Units</label>
-            <input type="number" name="numberOfUnits" placeholder="Enter Number of Units" value="{{myCollege.numberOfUnits" required>
-        </div><!--end of input field-->
-
-        <div class="input-field">
-            <label for="">Time and Date</label>
-            <input type="datetime-local" name="timeAndDate" placeholder="Enter Time and Date" value="{{myCollege.timeAndDate}}" required>
-        </div><!--end of input field-->
-        <input id="submit-btn" type="submit" value="Add Record">
-       </form>
-    </div><!--end of navigation-->
-
-</div><!--end of upper sidenav-->
-    <button id="logout">Logout</button>
-</div><!--end of sidenav-->
-   
 
 
 
@@ -328,55 +335,53 @@ table tr:nth-child(even){
 
 
 
-<div class="content">
-   
-<div class="uppernavigation">
-    <form action="">
-        <input type="seacrh" placeholder="search">
-        <input type="submit" value="search">
-    </form>
+        <div class="content">
+            
+            <div class="uppernavigation">
+                <form action="">
+                    <input type="seacrh" placeholder="search">
+                    <input type="submit" value="search">
+                </form>
 
-    <div class="profile">
-        
-    </div><!--end of profile-->
-</div><!--end of uppernavigation-->
-   
+                <div class="profile"></div><!--end of profile-->
+            </div><!--end of uppernavigation-->
+            
 
-<div class="table-container">
- 
-<h1>Available Schedules</h1>
-<table>
+            <div class="table-container">
+            
+                <h1>Available Schedules</h1>
+                
+                <table>
 
-<thead>
-<tr>
-<th>College Name</th>
-<th>Subject Description</th>
-<th>Number of Units</th>
-<th>Time and Date</th>
-</tr>
-</thead>
+                    <thead>
+                        <tr>
+                        <th>College Name</th>
+                        <th>Subject Description</th>
+                        <th>Number of Units</th>
+                        <th>Time and Date</th>
+                        </tr>
+                    </thead>
 
-<tbody>
-{% for x in myCollege1 %}
-<tr>
-<td> {{ x.collegeName|upper }}</td>
-<td>{{ x.subject|upper }}</td>
-<td>{{ x.numberOfUnits }}</td>
-<td>{{ x.timeAndDate }}</td>
-</tr>
-{% endfor %}
+                    <tbody>
+                        {% for x in myCollege1 %}
+                        <tr>
+                        <td> {{ x.collegeName|upper }}</td>
+                        <td>{{ x.subject|upper }}</td>
+                        <td>{{ x.numberOfUnits }}</td>
+                        <td>{{ x.timeAndDate }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
-</tbody>
-</table>
-
-</div><!--end of table container-->
+            </div><!--end of table container-->
 
 
 
 
-</div><!--end of content-->
+        </div><!--end of content-->
 
 
-</main>
+    </main>
 </body>
 </html>

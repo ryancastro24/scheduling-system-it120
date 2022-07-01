@@ -245,34 +245,29 @@ table tr:nth-child(even){
 
 
 
+<!--startin point of the body-->
 
 
 <body>
     
-    
-    
 
+    <main>
 
+        <div  class="sidenav">
 
-<main>
+            <div class="upper-sidenav">
+                <div class="logo"></div><!--end of logo-->
+                
+                <div class="navigation">
+                    <a href="{% url 'add' %}">Add Record</a>
+                    <a href="{% url 'updatePage' %}">Update Record</a>
+                    <a href="{% url 'index' %}">View Schedules</a>
+                </div><!--end of navigation-->
 
-<div  class="sidenav">
-
-    <div class="upper-sidenav">
-        <div class="logo">
-            
-        </div><!--end of logo-->
+            </div><!--end of upper sidenav-->
+            <button id="logout">Logout</button>
+        </div><!--end of sidenav-->
         
-        <div class="navigation">
-            <a href="{% url 'add' %}">Add Record</a>
-            <a href="{% url 'updatePage' %}">Update Record</a>
-            <a href="{% url 'index' %}">View Schedules</a>
-        </div><!--end of navigation-->
-
-    </div><!--end of upper sidenav-->
-    <button id="logout">Logout</button>
-</div><!--end of sidenav-->
-   
 
 
 
@@ -281,57 +276,55 @@ table tr:nth-child(even){
 
 
 
-<div class="content">
-   
-<div class="uppernavigation">
-    <form action="">
-        <input type="seacrh" placeholder="search">
-        <input type="submit" value="search">
-    </form>
-
-    <div class="profile">
+        <div class="content">
         
-    </div><!--end of profile-->
-</div><!--end of uppernavigation-->
-   
+        <div class="uppernavigation">
+            <form action="">
+                <input type="seacrh" placeholder="search">
+                <input type="submit" value="search">
+            </form>
 
-<div class="table-container">
-<h1>Delete A Record</h1>
-<table>
+            <div class="profile">
+                
+            </div><!--end of profile-->
+        </div><!--end of uppernavigation-->
+        
 
-<thead>
-<tr>
-<th>College Name</th>
-<th>Subject Description</th>
-<th>Number of Units</th>
-<th>Time and Date</th>
-<th>Delete Schedule</th>
-</tr>
-</thead>
+        <div class="table-container">
+            <h1>Delete A Record</h1>
+            <table>
 
-<tbody>
-{% for x in myCollege %}
-<tr>
+                <thead>
+                    <tr>
+                        <th>College Name</th>
+                        <th>Subject Description</th>
+                        <th>Number of Units</th>
+                        <th>Time and Date</th>
+                        <th>Delete Schedule</th>
+                    </tr>
+                </thead>
 
-<td> {{ x.collegeName|upper }}</td>
-<td>{{ x.subject|upper }}</td>
-<td>{{ x.numberOfUnits }}</td>
-<td>{{ x.timeAndDate }}</td>
-<td><a href="delete/{{ x.id }}">delete</a></td>
+                <tbody>
+                    {% for x in myCollege %}
+                    <tr>
+                        <td> {{ x.collegeName|upper }}</td>
+                        <td>{{ x.subject|upper }}</td>
+                        <td>{{ x.numberOfUnits }}</td>
+                        <td>{{ x.timeAndDate }}</td>
+                        <td><a href="delete/{{ x.id }}">delete</a></td>
+                    </tr>
+                    {% endfor %}
 
-</tr>
-{% endfor %}
+                </tbody>
+            </table>
 
-</tbody>
-</table>
-
-</div><!--end of table container-->
-
-
-
-</div><!--end of content-->
+        </div><!--end of table container-->
 
 
-</main>
+
+        </div><!--end of content-->
+
+
+    </main>
 </body>
 </html>

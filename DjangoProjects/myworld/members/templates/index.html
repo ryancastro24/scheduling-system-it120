@@ -241,7 +241,7 @@ table tr:nth-child(even){
 
 
 
-
+<!--starting point of the body-->
 
 <body>
     
@@ -250,25 +250,23 @@ table tr:nth-child(even){
 
 
 
-<main>
+    <main>
 
-<div  class="sidenav">
+    <div  class="sidenav">
 
-    <div class="upper-sidenav">
-    <div class="logo">
-        
-    </div><!--end of logo-->
+        <div class="upper-sidenav">
+            <div class="logo"></div><!--end of logo-->
+            
+            <div class="navigation">
+                <a href="{% url 'add' %}">Add Record</a>
+                <a href="{% url 'deletePage' %}">Delete Record</a>
+                <a href="{% url 'updatePage' %}">Update Record</a>
+            </div><!--end of navigation-->
+
+        </div><!--end of upper sidenav-->
+        <button id="logout">Logout</button>
+    </div><!--end of sidenav-->
     
-    <div class="navigation">
-        <a href="{% url 'add' %}">Add Record</a>
-        <a href="{% url 'deletePage' %}">Delete Record</a>
-        <a href="{% url 'updatePage' %}">Update Record</a>
-    </div><!--end of navigation-->
-
-</div><!--end of upper sidenav-->
-    <button id="logout">Logout</button>
-</div><!--end of sidenav-->
-   
 
 
 
@@ -277,55 +275,54 @@ table tr:nth-child(even){
 
 
 
-<div class="content">
-   
-<div class="uppernavigation">
-    <form action="">
-        <input type="seacrh" placeholder="search">
-        <input type="submit" value="search">
-    </form>
-
-    <div class="profile">
+    <div class="content">
         
-    </div><!--end of profile-->
-</div><!--end of uppernavigation-->
-   
+        <div class="uppernavigation">
+            <form action="">
+                <input type="seacrh" placeholder="search">
+                <input type="submit" value="search">
+            </form>
 
-<div class="table-container">
- 
-<h1>All Schedules</h1>
-<table>
+            <div class="profile">
+                
+            </div><!--end of profile-->
+        </div><!--end of uppernavigation-->
+        
 
-<thead>
-<tr>
-<th>College Name</th>
-<th>Subject Description</th>
-<th>Number of Units</th>
-<th>Time and Date</th>
-</tr>
-</thead>
+        <div class="table-container">
+        
+            <h1>All Schedules</h1>
+            <table>
 
-<tbody>
-{% for x in myCollege %}
-<tr>
-<td> {{ x.collegeName|upper }}</td>
-<td>{{ x.subject|upper }}</td>
-<td>{{ x.numberOfUnits }}</td>
-<td>{{ x.timeAndDate }}</td>
-</tr>
-{% endfor %}
+                <thead>
+                    <tr>
+                        <th>College Name</th>
+                        <th>Subject Description</th>
+                        <th>Number of Units</th>
+                        <th>Time and Date</th>
+                    </tr>
+                </thead>
 
-</tbody>
-</table>
+                <tbody>
+                    {% for x in myCollege %}
+                        <tr>
+                            <td> {{ x.collegeName|upper }}</td>
+                            <td>{{ x.subject|upper }}</td>
+                            <td>{{ x.numberOfUnits }}</td>
+                            <td>{{ x.timeAndDate }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-</div><!--end of table container-->
+        </div><!--end of table container-->
 
 
 
 
-</div><!--end of content-->
+    </div><!--end of content-->
 
 
-</main>
+    </main>
 </body>
 </html>
